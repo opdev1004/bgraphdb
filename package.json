@@ -1,7 +1,7 @@
 {
   "name": "bgraphdb",
   "version": "0.0.1",
-  "description": "Javascript database. Memory DB with b-graph.",
+  "description": "Javascript database. Memory DB with nested b-graph (B-Tree).",
   "main": "dist/index.js",
   "bin": "dist/index.js",
   "directories": {

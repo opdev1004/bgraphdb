@@ -1,5 +1,5 @@
 # B-Graph DB
-Javascript database. Memory DB with b-graph (B-Tree).
+Javascript database. Memory DB with nested b-graph (B-Tree).
 
 ## ▶️ install
 ```
@@ -23,6 +23,16 @@ bgraphdb.deleteLabel("test2");
 This database stays in the memory. So if you want to maintain them, you need to store them in the persistent storage. The database can be serialized and the serialized database can be stored by indexedDB or using file system from node.js.
 
 Don't store bigger than what hardware can handle.
+
+It would be good to maintain read and write a file speed under 1 second for desktop apps.
+For example:
+If you target HDD users, less than 80mb size of serialized database.
+If you target SSD users, less than 450mb size of serialized database.
+
+Another good option is read and write only when your apps need to.
+For example:
+Read a db file only when your app is strating.
+Write a db file only before your app is closing. Or only when user decides to write a db file.
 
 ### 📖 Simple document
 | function | ``` insertLabel(label)  ``` | 
