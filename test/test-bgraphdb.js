@@ -42,6 +42,29 @@ function test()
 
     console.log("=============================");
     console.log(bgraphdb.serialize());
+
+    console.log("=============================");
+    bgraphdb.insertData("test4", "worldis", "wawaaaacooo");
+    bgraphdb.insertData("test4", "worldiscute", "wowooocooo");
+    bgraphdb.insertData("test4", "worldgogo", "afk mate cooo");
+    bgraphdb.insertData("test4", "worldgogogogogogoo", "nonononoooo");
+    bgraphdb.insertData("test4", "gogogocute", "no");
+    
+    console.log(bgraphdb.getStart("test4"));
+    console.log(bgraphdb.getEnd("test4"));
+
+    console.log("------------------------------");
+    let list = bgraphdb.searchRange("test4", "worldgogo", 3);
+    console.log(list);
+    console.log("------------------------------");
+    list = bgraphdb.searchRangeBackward("test4", "worldiscute", 3);
+    console.log(list);
+    console.log("------------------------------");
+    list = bgraphdb.searchKeyContains("test4", "world", 2);
+    console.log(list);
+    console.log("------------------------------");
+    list = bgraphdb.searchValueContains("test4", "coo", 2);
+    console.log(list);
 }
 
 

@@ -93,6 +93,47 @@ Write a db file only before your app is closing. Or only when user decides to wr
 | arg: position | number, the position where it start to store data into list. This let us skip first number of data from the where key is. |
 | return | unidentified for wrong label and key. list of data for success. else empty list |
 
+| function | ``` searchRangeBackward(label, key, range, position = 0) ``` | 
+| - | - |
+| description | This function searches data and returns multiple number of data from the position. Adds data backward. |
+| arg: label | string, name of b-graph to store data |
+| arg: key | string, name of value |
+| arg: range | number, number of data from the position |
+| arg: position | number, the position where it start to store data into list. This let us skip first number of data from the where key is. |
+| return | unidentified for wrong label and key. list of data for success. else empty list |
+
+| function | ``` searchKeyContains(label, substring, total, position, lastKey)  ``` | 
+| - | - |
+| description | This function is for finding list of data that its key contains substring. |
+| arg: label | string, name of b-graph to store data |
+| arg: substring | string |
+| arg: total | number, number of data to grab |
+| arg: position | number, number to skip data |
+| arg: lastKey | string, last key where it should start search from |
+| return | return list of data (empty list as well), if it fails return undefined |
+
+| function | ``` searchValueContains(label, substring, total, position, lastKey)  ``` | 
+| - | - |
+| description | This function is for finding list of data that its value contains substring. |
+| arg: label | string, name of b-graph to store data |
+| arg: substring | string |
+| arg: total | number, number of data to grab |
+| arg: position | number, number to skip data |
+| arg: lastKey | string, last key where it should start search from |
+| return | return list of data (empty list as well), if it fails return undefined |
+
+| function | ``` getStart(label)  ``` | 
+| - | - |
+| description | This function is for finding list of data that its value contains substring. |
+| arg: label | string, name of b-graph to store data |
+| return | return first data, |
+
+| function | ``` getEnd(label)  ``` | 
+| - | - |
+| description | This function is for finding list of data that its value contains substring. |
+| arg: label | string, name of b-graph to store data |
+| return | return last data |
+
 | function | ``` serialize() ``` | 
 | - | - |
 | description | serialize database. it can be stored by indexedDB or using file system from node.js |

@@ -39,6 +39,13 @@ function test()
         if (err) throw err;
     }); 
     console.timeEnd("db-write-file");
+
+    fs.readFile('./testdb.json', (err, data) => {
+        if (err) throw err;
+        serializedDB = data;
+    });
+
+    bgraphdb.deserialize(serializedDB);
 }
 
 
