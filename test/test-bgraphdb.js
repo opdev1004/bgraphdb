@@ -8,6 +8,9 @@ function getBinarySize(string) {
 function test()
 {
     const bgraphdb = new BGraphDB();
+    let serializedDB = bgraphdb.serialize();
+    console.log(serializedDB);
+    bgraphdb.deserialize(serializedDB);
 
     bgraphdb.insertLabel("test1");
     bgraphdb.insertLabel("test2");
@@ -21,7 +24,6 @@ function test()
     bgraphdb.insertData("test3", "4", "4");
     bgraphdb.insertData("test3", "5", "5");
     
-    let serializedDB = bgraphdb.serialize();
 
     bgraphdb.insertData("test3", "6", "6");
     bgraphdb.insertData("test3", "7", "7");
@@ -33,7 +35,6 @@ function test()
     console.log(bgraphdb.serialize());
 
     bgraphdb.deleteData("test3", "6");
-    bgraphdb.deserialize(serializedDB);
 
     console.log("=============================");
     console.log(bgraphdb.serialize());
