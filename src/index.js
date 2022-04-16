@@ -198,6 +198,12 @@ module.exports = class BGraphDB {
         }
     }
 
+    getAllLabels()
+    {
+        if(this.bgraph !== undefined) return this.bgraph.getAllKeys();
+        else return [];
+    }
+
     serialize()
     {
         return this.bgraph.serialize();

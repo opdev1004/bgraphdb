@@ -134,6 +134,11 @@ Write a db file only before your app is closing. Or only when user decides to wr
 | arg: label | string, name of b-graph to store data |
 | return | return last data |
 
+| function | ``` getAllLabels()  ``` | 
+| - | - |
+| description | This function returns all of labels |
+| return | return array list |
+
 | function | ``` serialize() ``` | 
 | - | - |
 | description | serialize database. it can be stored by indexedDB or using file system from node.js |

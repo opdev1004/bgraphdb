@@ -65,6 +65,9 @@ function test()
     console.log("------------------------------");
     list = bgraphdb.searchValueContains("test4", "coo", 2);
     console.log(list);
+    console.log("------------------------------");
+    list =  bgraphdb.getAllLabels();
+    console.log(list);
 }
 
 
