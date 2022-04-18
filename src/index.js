@@ -9,11 +9,7 @@ module.exports = class BGraphDB {
     insertLabel(label)
     {
         if(!label || typeof label !== 'string') return false;
-        else
-        {
-            this.bgraph.insert(label, null);
-            return true;
-        }
+        else return this.bgraph.insert(label, null);
     }
 
     updateLabel(oldLabel, newLabel)
