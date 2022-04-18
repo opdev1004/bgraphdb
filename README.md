@@ -84,21 +84,21 @@ Write a db file only before your app is closing. Or only when user decides to wr
 | arg: key | string, name of value |
 | return | unidentified for failure of searching data, value for success  |
 
-| function | ``` searchRange(label, key, range, position = 0) ``` | 
+| function | ``` searchRange(label, key, total, position = 0) ``` | 
 | - | - |
 | description | This function searches data and returns multiple number of data from the position |
 | arg: label | string, name of b-graph to store data |
 | arg: key | string, name of value |
-| arg: range | number, number of data from the position |
+| arg: total | number, number of data from the position |
 | arg: position | number, the position where it start to store data into list. This let us skip first number of data from the where key is. |
 | return | unidentified for wrong label and key. list of data for success. else empty list |
 
-| function | ``` searchRangeBackward(label, key, range, position = 0) ``` | 
+| function | ``` searchRangeBackward(label, key, total, position = 0) ``` | 
 | - | - |
 | description | This function searches data and returns multiple number of data from the position. Adds data backward. |
 | arg: label | string, name of b-graph to store data |
 | arg: key | string, name of value |
-| arg: range | number, number of data from the position |
+| arg: total | number, number of data from the position |
 | arg: position | number, the position where it start to store data into list. This let us skip first number of data from the where key is. |
 | return | unidentified for wrong label and key. list of data for success. else empty list |
 
@@ -110,7 +110,7 @@ Write a db file only before your app is closing. Or only when user decides to wr
 | arg: total | number, number of data to grab |
 | arg: position | number, number to skip data |
 | arg: lastKey | string, last key where it should start search from |
-| return | return list of data (empty list as well), if it fails return undefined |
+| return | return list of data (empty list as well) |
 
 | function | ``` searchValueContains(label, substring, total, position, lastKey)  ``` | 
 | - | - |
@@ -120,7 +120,7 @@ Write a db file only before your app is closing. Or only when user decides to wr
 | arg: total | number, number of data to grab |
 | arg: position | number, number to skip data |
 | arg: lastKey | string, last key where it should start search from |
-| return | return list of data (empty list as well), if it fails return undefined |
+| return | return list of data (empty list as well) |
 
 | function | ``` getStart(label)  ``` | 
 | - | - |
@@ -136,7 +136,25 @@ Write a db file only before your app is closing. Or only when user decides to wr
 
 | function | ``` getAllLabels()  ``` | 
 | - | - |
-| description | This function returns all of labels |
+| description | This function returns a list of labels |
+| return | return array list |
+
+| function | ``` getAllKeysFromLabel(label)  ``` | 
+| - | - |
+| description | This function returns a list of all key from label |
+| arg: label | string, name of b-graph to store data |
+| return | return array list |
+
+| function | ``` getAllValuesFromLabel(label)  ``` | 
+| - | - |
+| description | This function returns a list of all value from label |
+| arg: label | string, name of b-graph to store data |
+| return | return array list |
+
+| function | ``` getAllFromLabel(label)  ``` | 
+| - | - |
+| description | This function returns a list of all data from label |
+| arg: label | string, name of b-graph to store data |
 | return | return array list |
 
 | function | ``` serialize() ``` | 

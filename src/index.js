@@ -90,11 +90,11 @@ module.exports = class BGraphDB {
 
     search(label, key)
     {
-        if(!label || typeof label !== 'string' || !key || typeof key !== 'string' ) return undefined;
+        if(!label || typeof label !== 'string' || !key || typeof key !== 'string' ) return false;
 
         let bgraphObj = this.bgraph.search(label);
 
-        if(bgraphObj === undefined || bgraphObj === null) return undefined;
+        if(bgraphObj === undefined || bgraphObj === null) return false;
         else
         {
             let labelBGraph = new BGraph();
@@ -105,7 +105,7 @@ module.exports = class BGraphDB {
 
     searchRange(label, key, total, position = 0)
     {
-        if(!label || typeof label !== 'string' || !key || typeof key !== 'string' || !total || typeof total !== 'number' || typeof position !== 'number') return undefined;
+        if(!label || typeof label !== 'string' || !key || typeof key !== 'string' || !total || typeof total !== 'number' || typeof position !== 'number') return [];
 
         let bgraphObj = this.bgraph.search(label);
         if(bgraphObj === undefined || bgraphObj === null) return [];
@@ -119,7 +119,7 @@ module.exports = class BGraphDB {
 
     searchRangeBackward(label, key, total, position = 0)
     {
-        if(!label || typeof label !== 'string' || !key || typeof key !== 'string' || !total || typeof total !== 'number' || typeof position !== 'number') return undefined;
+        if(!label || typeof label !== 'string' || !key || typeof key !== 'string' || !total || typeof total !== 'number' || typeof position !== 'number') return [];
 
         let bgraphObj = this.bgraph.search(label);
 
@@ -134,7 +134,7 @@ module.exports = class BGraphDB {
 
     searchKeyContains(label, substring, total, position = 0, lastKey = "")
     {
-        if(!label || typeof label !== 'string' || !substring || typeof substring !== 'string' || !total || typeof total !== 'number' || typeof position !== 'number' || typeof lastKey !== 'string') return undefined;
+        if(!label || typeof label !== 'string' || !substring || typeof substring !== 'string' || !total || typeof total !== 'number' || typeof position !== 'number' || typeof lastKey !== 'string') return [];
 
         let bgraphObj = this.bgraph.search(label);
         
@@ -149,8 +149,7 @@ module.exports = class BGraphDB {
 
     searchValueContains(label, substring, total, position = 0, lastKey = "")
     {
-        if(!label || typeof label !== 'string' || !substring || typeof substring !== 'string' || !total || typeof total !== 'number' || typeof position !== 'number' || typeof lastKey !== 'string') return undefined;
-
+        if(!label || typeof label !== 'string' || !substring || typeof substring !== 'string' || !total || typeof total !== 'number' || typeof position !== 'number' || typeof lastKey !== 'string') return [];
         let bgraphObj = this.bgraph.search(label);
 
         if(bgraphObj === undefined || bgraphObj === null) return [];
@@ -164,11 +163,11 @@ module.exports = class BGraphDB {
 
     getStart(label)
     {
-        if(!label || typeof label !== 'string') return undefined;
+        if(!label || typeof label !== 'string') return false;
 
         let bgraphObj = this.bgraph.search(label);
 
-        if(bgraphObj === undefined || bgraphObj === null) return undefined;
+        if(bgraphObj === undefined || bgraphObj === null) return false;
         else
         {
             let labelBGraph = new BGraph();
@@ -180,11 +179,11 @@ module.exports = class BGraphDB {
 
     getEnd(label)
     {
-        if(!label || typeof label !== 'string') return undefined;
+        if(!label || typeof label !== 'string') return false;
 
         let bgraphObj = this.bgraph.search(label);
 
-        if(bgraphObj === undefined || bgraphObj === null) return undefined;
+        if(bgraphObj === undefined || bgraphObj === null) return false;
         else
         {
             let labelBGraph = new BGraph();
@@ -198,6 +197,51 @@ module.exports = class BGraphDB {
     {
         if(this.bgraph !== undefined) return this.bgraph.getAllKeys();
         else return [];
+    }
+
+    getAllKeysFromLabel(label)
+    {
+        if(!label || typeof label !== 'string') return [];
+
+        let bgraphObj = this.bgraph.search(label);
+
+        if(bgraphObj === undefined || bgraphObj === null) return [];
+        else
+        {
+            let labelBGraph = new BGraph();
+            labelBGraph.deserializeFromObj(bgraphObj);
+            return labelBGraph.getAllKeys();
+        }
+    }
+
+    getAllValuesFromLabel(label)
+    {
+        if(!label || typeof label !== 'string') return [];
+
+        let bgraphObj = this.bgraph.search(label);
+
+        if(bgraphObj === undefined || bgraphObj === null) return [];
+        else
+        {
+            let labelBGraph = new BGraph();
+            labelBGraph.deserializeFromObj(bgraphObj);
+            return labelBGraph.getAllValues();
+        }
+    }
+
+    getAllFromLabel(label)
+    {
+        if(!label || typeof label !== 'string') return [];
+
+        let bgraphObj = this.bgraph.search(label);
+
+        if(bgraphObj === undefined || bgraphObj === null) return [];
+        else
+        {
+            let labelBGraph = new BGraph();
+            labelBGraph.deserializeFromObj(bgraphObj);
+            return labelBGraph.getAll();
+        }
     }
 
     serialize()

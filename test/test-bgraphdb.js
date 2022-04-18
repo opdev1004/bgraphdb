@@ -69,6 +69,15 @@ function test()
     console.log("------------------------------");
     list =  bgraphdb.getAllLabels();
     console.log(list);
+    console.log("------------------------------");
+    list =  bgraphdb.getAllKeysFromLabel("test4");
+    console.log(list);
+    console.log("------------------------------");
+    list =  bgraphdb.getAllValuesFromLabel("test4");
+    console.log(list);
+    console.log("------------------------------");
+    list =  bgraphdb.getAllFromLabel("test4");
+    console.log(list);
 }
 
 
