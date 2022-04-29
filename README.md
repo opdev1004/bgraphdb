@@ -1,6 +1,10 @@
 # B-Graph DB
 Javascript database. Memory DB with nested b-graph (B-Tree).
 
+Please use version > 0.0.9
+
+From v0.0.10, db structure use String instead of object for a storage(bgraph) of label to avoid JSON circular iteration problem.
+
 ## ▶️ install
 ```
 npm i bgraphdb

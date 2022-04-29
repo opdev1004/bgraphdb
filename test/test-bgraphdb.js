@@ -78,6 +78,10 @@ function test()
     console.log("------------------------------");
     list =  bgraphdb.getAllFromLabel("test4");
     console.log(list);
+
+    bgraphdb.deserialize(bgraphdb.serialize());
+    console.log(bgraphdb.serialize());
+    console.log(typeof bgraphdb.serialize());
 }
 
 

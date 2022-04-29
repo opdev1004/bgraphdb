@@ -38,16 +38,16 @@ module.exports = class BGraphDB {
             let labelBGraph = new BGraph(this.order);
             let result = labelBGraph.insert(key, value);
             if(!result) return false;
-            this.bgraph.update(label, labelBGraph.serializeToObj());
+            this.bgraph.update(label, labelBGraph.serialize());
             return true;
         }
         else 
         {
             let labelBGraph = new BGraph();
-            labelBGraph.deserializeFromObj(bgraphObj);
+            labelBGraph.deserialize(bgraphObj);
             let result = labelBGraph.insert(key, value);
             if(!result) return false;
-            this.bgraph.update(label, labelBGraph.serializeToObj());
+            this.bgraph.update(label, labelBGraph.serialize());
             return true;
         }
     }
@@ -62,10 +62,10 @@ module.exports = class BGraphDB {
         else 
         {
             let labelBGraph = new BGraph();
-            labelBGraph.deserializeFromObj(bgraphObj);
+            labelBGraph.deserialize(bgraphObj);
             let result = labelBGraph.update(key, value);
             if(!result) return false;
-            this.bgraph.update(label, labelBGraph.serializeToObj());
+            this.bgraph.update(label, labelBGraph.serialize());
             return true;
         }
     }
@@ -80,10 +80,10 @@ module.exports = class BGraphDB {
         else
         {
             let labelBGraph = new BGraph();
-            labelBGraph.deserializeFromObj(bgraphObj);
+            labelBGraph.deserialize(bgraphObj);
             let result = labelBGraph.delete(key);
             if(!result) return false;
-            this.bgraph.update(label, labelBGraph.serializeToObj());
+            this.bgraph.update(label, labelBGraph.serialize());
             return true;
         }
     }
@@ -98,7 +98,7 @@ module.exports = class BGraphDB {
         else
         {
             let labelBGraph = new BGraph();
-            labelBGraph.deserializeFromObj(bgraphObj);
+            labelBGraph.deserialize(bgraphObj);
             return labelBGraph.search(key);
         }
     }
@@ -112,7 +112,7 @@ module.exports = class BGraphDB {
         else
         {
             let labelBGraph = new BGraph();
-            labelBGraph.deserializeFromObj(bgraphObj);
+            labelBGraph.deserialize(bgraphObj);
             return labelBGraph.searchRange(key, total, position);
         }
     }
@@ -127,7 +127,7 @@ module.exports = class BGraphDB {
         else
         {
             let labelBGraph = new BGraph();
-            labelBGraph.deserializeFromObj(bgraphObj);
+            labelBGraph.deserialize(bgraphObj);
             return labelBGraph.searchRangeBackward(key, total, position);
         }
     }
@@ -142,7 +142,7 @@ module.exports = class BGraphDB {
         else
         {
             let labelBGraph = new BGraph();
-            labelBGraph.deserializeFromObj(bgraphObj);
+            labelBGraph.deserialize(bgraphObj);
             return labelBGraph.searchKeyContains(substring, total, position, lastKey);
         }
     }
@@ -156,7 +156,7 @@ module.exports = class BGraphDB {
         else
         {
             let labelBGraph = new BGraph();
-            labelBGraph.deserializeFromObj(bgraphObj);
+            labelBGraph.deserialize(bgraphObj);
             return labelBGraph.searchValueContains(substring, total, position, lastKey);
         }
     }
@@ -171,7 +171,7 @@ module.exports = class BGraphDB {
         else
         {
             let labelBGraph = new BGraph();
-            labelBGraph.deserializeFromObj(bgraphObj);
+            labelBGraph.deserialize(bgraphObj);
             let listNode = labelBGraph.start;
             return {key: listNode.key, value: listNode.value};
         }
@@ -187,7 +187,7 @@ module.exports = class BGraphDB {
         else
         {
             let labelBGraph = new BGraph();
-            labelBGraph.deserializeFromObj(bgraphObj);
+            labelBGraph.deserialize(bgraphObj);
             let listNode = labelBGraph.end;
             return {key: listNode.key, value: listNode.value};
         }
@@ -209,7 +209,7 @@ module.exports = class BGraphDB {
         else
         {
             let labelBGraph = new BGraph();
-            labelBGraph.deserializeFromObj(bgraphObj);
+            labelBGraph.deserialize(bgraphObj);
             return labelBGraph.getAllKeys();
         }
     }
@@ -224,7 +224,7 @@ module.exports = class BGraphDB {
         else
         {
             let labelBGraph = new BGraph();
-            labelBGraph.deserializeFromObj(bgraphObj);
+            labelBGraph.deserialize(bgraphObj);
             return labelBGraph.getAllValues();
         }
     }
@@ -239,7 +239,7 @@ module.exports = class BGraphDB {
         else
         {
             let labelBGraph = new BGraph();
-            labelBGraph.deserializeFromObj(bgraphObj);
+            labelBGraph.deserialize(bgraphObj);
             return labelBGraph.getAll();
         }
     }
