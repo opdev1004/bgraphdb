@@ -106,6 +106,24 @@ Write a db file only before your app is closing. Or only when user decides to wr
 | arg: position | number, the position where it start to store data into list. This let us skip first number of data from the where key is. |
 | return | unidentified for wrong label and key. list of data for success. else empty list |
 
+| function | ``` searchLabelContains(substring, total, position, lastKey)  ``` | 
+| - | - |
+| description | This function is for finding list of labels that contains substring. |
+| arg: substring | string |
+| arg: total | number, number of labels to grab |
+| arg: position | number, number to skip labels |
+| arg: lastKey | string, last label where it should start search from |
+| return | return list of label (empty list as well) |
+
+| function | ``` searchLabelContainsOnlyLabel(substring, total, position, lastKey)  ``` | 
+| - | - |
+| description | This function is for finding list of labels that contains substring. |
+| arg: substring | string |
+| arg: total | number, number of labels to grab |
+| arg: position | number, number to skip labels |
+| arg: lastKey | string, last label where it should start search from |
+| return | return list of label (empty list as well) |
+
 | function | ``` searchKeyContains(label, substring, total, position, lastKey)  ``` | 
 | - | - |
 | description | This function is for finding list of data that its key contains substring. |

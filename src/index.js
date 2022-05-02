@@ -132,6 +132,28 @@ module.exports = class BGraphDB {
         }
     }
 
+    searchLabelContains(substring, total, position = 0, lastKey = "")
+    {
+        if(!substring || typeof substring !== 'string' || !total || typeof total !== 'number' || typeof position !== 'number' || typeof lastKey !== 'string') return [];
+
+        return this.bgraph.searchKeyContains(substring, total, position, lastKey);
+    }
+
+    searchLabelContainsOnlyLabel(substring, total, position = 0, lastKey = "")
+    {
+        if(!substring || typeof substring !== 'string' || !total || typeof total !== 'number' || typeof position !== 'number' || typeof lastKey !== 'string') return [];
+        
+        let result = [];
+        let list = this.bgraph.searchKeyContains(substring, total, position, lastKey);
+
+        for(let data of list)
+        {
+            result.push(data.key);
+        }
+
+        return result;
+    }
+
     searchKeyContains(label, substring, total, position = 0, lastKey = "")
     {
         if(!label || typeof label !== 'string' || !substring || typeof substring !== 'string' || !total || typeof total !== 'number' || typeof position !== 'number' || typeof lastKey !== 'string') return [];

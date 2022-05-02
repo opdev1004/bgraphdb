@@ -78,10 +78,18 @@ function test()
     console.log("------------------------------");
     list =  bgraphdb.getAllFromLabel("test4");
     console.log(list);
+    bgraphdb.updateData("test4", "worldis", "mmm");
+    console.log(bgraphdb.search("test4", "worldis"));
 
+    /*
     bgraphdb.deserialize(bgraphdb.serialize());
     console.log(bgraphdb.serialize());
     console.log(typeof bgraphdb.serialize());
+    */
+   list = bgraphdb.searchLabelContains("test", 10);
+   console.log(list);
+   list = bgraphdb.searchLabelContainsOnlyLabel("test", 10);
+   console.log(list);
 }
 
 
